@@ -5,13 +5,13 @@ chapter: false
 ---
 # 3-Tier User Platform on AWS
 
-Hi, I am **buicongthanh861**. This is the project report for **3-Tier User Platform**, covering how a user-management application is deployed on AWS and how its infrastructure, CI/CD, and GitOps delivery are automated.
+Hi, I am buicongthanh861. This is the project report for 3-Tier User Platform, covering how a user-management application is deployed on AWS and how its infrastructure, CI/CD, and GitOps delivery are automated.
 
 ## Project overview
 
-The application consists of a React frontend, a Node.js/Express REST API, and MySQL. Kubernetes infrastructure is provisioned on Amazon EKS with Terraform. GitHub Actions checks the source, builds and pushes images to ECR, and updates Helm values in the IaC repository; Argo CD reconciles those changes to the cluster.
+The application consists of a React frontend, a Node.js and Express REST API, and MySQL. Terraform provisions the VPC and Amazon EKS. GitHub Actions checks the source, builds frontend and backend images, pushes them to ECR, and updates Helm values in the IaC repository. Argo CD tracks the IaC repository and reconciles configuration to Kubernetes.
 
-**Tech stack:** AWS EKS, ECR, VPC, IAM, Terraform, Kubernetes, Helm, Argo CD, GitHub Actions, Prometheus, Grafana, Trivy, Checkov, GitLeaks.
+Tech stack: AWS EKS, ECR, VPC, IAM, Terraform, Kubernetes, Helm, Argo CD, GitHub Actions, Prometheus, Grafana, Trivy, Checkov, GitLeaks.
 
 ## Contents
 

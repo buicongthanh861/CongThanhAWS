@@ -5,13 +5,13 @@ chapter: false
 ---
 # 3-Tier User Platform trên AWS
 
-Xin chào, tôi là **buicongthanh861**. Đây là báo cáo project **3-Tier User Platform**, trình bày cách triển khai ứng dụng quản lý người dùng trên AWS và tự động hóa hạ tầng, CI/CD, GitOps.
+Xin chào, tôi là buicongthanh861. Đây là báo cáo project 3-Tier User Platform, trình bày cách triển khai ứng dụng quản lý người dùng trên AWS và tự động hóa hạ tầng, CI/CD, GitOps.
 
 ## Tổng quan dự án
 
-Ứng dụng gồm giao diện React, REST API dùng Node.js/Express và cơ sở dữ liệu MySQL. Hạ tầng Kubernetes được triển khai trên Amazon EKS bằng Terraform. GitHub Actions kiểm tra mã nguồn, build/push image lên ECR và cập nhật Helm values trong repository IaC; Argo CD đồng bộ các thay đổi lên cluster.
+Ứng dụng gồm giao diện React, REST API dùng Node.js và Express, cùng cơ sở dữ liệu MySQL. Terraform tạo VPC và Amazon EKS. GitHub Actions kiểm tra mã nguồn, build image frontend và backend, đẩy image lên ECR rồi cập nhật Helm values trong repository IaC. Argo CD theo dõi repository IaC và đồng bộ cấu hình lên Kubernetes.
 
-**Tech stack:** AWS EKS, ECR, VPC, IAM, Terraform, Kubernetes, Helm, Argo CD, GitHub Actions, Prometheus, Grafana, Trivy, Checkov, GitLeaks.
+Tech stack: AWS EKS, ECR, VPC, IAM, Terraform, Kubernetes, Helm, Argo CD, GitHub Actions, Prometheus, Grafana, Trivy, Checkov, GitLeaks.
 
 ## Nội dung
 
