@@ -7,13 +7,21 @@ pre: "<b>6. </b>"
 
 ## Source code
 
-1. **Application:** [3-tier-user-platform — qa branch](https://github.com/buicongthanh861/3-tier-user-platform/tree/qa)
-2. **Infrastructure as Code:** [3-tier-user-platform-iac](https://github.com/buicongthanh861/3-tier-user-platform-iac)
+1. **Application:** [3-tier-user-platform — `qa` branch](https://github.com/buicongthanh861/3-tier-user-platform/tree/qa)
+2. **Infrastructure (IaC):** [3-tier-user-platform-iac](https://github.com/buicongthanh861/3-tier-user-platform-iac)
 
 ## Highlights
 
-- Automated AWS infrastructure provisioning with Terraform modules, bringing deployment time to **under 15 minutes**.
+- Automated AWS infrastructure provisioning with Terraform, with reported deployment time of **under 15 minutes**.
 - Standardized frontend, backend, and MySQL deployment on EKS with Helm and Argo CD GitOps.
-- Connected tests, image build and ECR push, and Helm values updates in GitHub Actions.
+- Automated secret, IaC, Kubernetes manifest, Dockerfile, and application filesystem scans in the QA workflow.
+- Built/pushed frontend and backend images to ECR and used YQ to update GitOps values for Argo CD sync.
 - Reduced release time to **approximately 5 minutes**.
-- Added security checks and monitoring to improve early detection of operational issues.
+- Monitoring can be installed separately; Terraform does not currently deploy the chart automatically.
+
+## Follow-up improvements
+
+- Add test/lint scripts so the existing QA steps actually run; `--if-present` skips them when scripts are absent.
+- Consider removing `|| true` from Checkov if policy findings should block the pipeline.
+- Install and configure `kube-prometheus-stack`, including an Alertmanager email receiver if email notifications are required.
+- Align the MySQL chart StorageClass (`gp3` in values, `gp2` in the template) and verify the Argo CD Git URL/branch (`master`) before deployment.

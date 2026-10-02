@@ -7,15 +7,30 @@ pre: "<b>1. </b>"
 
 ## Mục tiêu
 
-Xây dựng nền tảng triển khai ứng dụng người dùng theo kiến trúc ba tầng trên AWS, đồng thời tự động hóa hạ tầng, phát hành và vận hành theo các thực hành DevOps / Cloud Engineering.
+Triển khai ứng dụng quản lý người dùng theo kiến trúc ba tầng trên AWS, đồng thời tự động hóa hạ tầng, phát hành và vận hành theo các thực hành DevOps / Cloud Engineering.
 
-Ứng dụng gồm **Frontend**, **Backend** và **MySQL**. Các workload chạy trên **Amazon EKS**; image được lưu trữ trên **Amazon ECR**. Cấu hình hạ tầng được quản lý bằng Terraform và cấu hình triển khai ứng dụng được quản lý trong Git.
+Ứng dụng **3-Tier User Platform** gồm frontend **React**, backend **Node.js/Express** cung cấp REST API quản lý người dùng và cơ sở dữ liệu **MySQL 8**. Ba thành phần được đóng gói riêng và triển khai trên **Amazon EKS**; image frontend/backend được lưu ở **Amazon ECR**. Terraform quản lý AWS infrastructure và add-ons; Argo CD theo dõi các Helm charts trong repository IaC.
 
-## Luồng triển khai
+{{< mermaid >}}
+flowchart TB
+    Internet --> Ingress[NGINX Ingress]
+    Ingress --> Frontend[Frontend Service]
+    Ingress --> Backend[Backend Service /api]
+    Backend --> Database[MySQL StatefulSet]
+    Terraform[Terraform] --> VPC[VPC, subnets, routes, NAT]
+    Terraform --> EKS[EKS cluster and node group]
+    Terraform --> Addons[OIDC, AWS Load Balancer Controller, EBS CSI, Argo CD]
+    ArgoCD[Argo CD] --> Frontend
+    ArgoCD --> Backend
+    ArgoCD --> Database
+{{< /mermaid >}}
+
+## Luồng CI/CD và GitOps
 
 ```text
-Developer → GitHub Actions → Unit tests → Build image → Push to ECR
-                                      → Update Helm values → Argo CD sync → EKS
+Push vào nhánh qa → GitLeaks / Checkov / Trivy → lint, test nếu có scripts
+                 → Build image → Push ECR → YQ cập nhật Helm values ở repo IaC
+                 → Argo CD theo dõi nhánh master → Sync lên EKS
 ```
 
 ## Công nghệ sử dụng
@@ -28,4 +43,6 @@ Developer → GitHub Actions → Unit tests → Build image → Push to ECR
 | Bảo mật | Trivy, Checkov, GitLeaks |
 | Monitoring | Prometheus, Grafana, Alertmanager |
 
-Các phần tiếp theo trình bày thiết kế hạ tầng, cách đóng gói và triển khai workload, pipeline CI/CD, bảo mật và giám sát.
+> Workflow hiện gọi lint/test bằng `--if-present`; các scripts lint/test chưa được khai báo trong package hiện tại nên các bước đó được bỏ qua. Add-on kube-prometheus-stack cũng chưa được Terraform cài tự động.
+
+Các phần tiếp theo trình bày hạ tầng, chart Kubernetes, luồng CI/CD thực tế, các kiểm tra bảo mật và trạng thái monitoring.

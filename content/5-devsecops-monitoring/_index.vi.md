@@ -7,18 +7,18 @@ pre: "<b>5. </b>"
 
 ## Tích hợp kiểm tra bảo mật
 
-Các công cụ bảo mật được đưa vào CI/CD để phát hiện sớm vấn đề trước khi phát hành:
+Workflow QA có các bước kiểm tra bảo mật:
 
-- **Trivy**: quét lỗ hổng container image.
-- **Checkov**: kiểm tra cấu hình Terraform và Kubernetes.
-- **GitLeaks**: phát hiện secrets bị đưa vào mã nguồn.
+- **GitLeaks**: quét secrets và tạo artifact báo cáo.
+- **Checkov**: quét Terraform, Kubernetes manifests và Dockerfiles.
+- **Trivy**: quét filesystem của client/server, mức `HIGH`/`CRITICAL`.
+
+> Lưu ý: Checkov hiện chạy kèm `|| true`, vì vậy phát hiện của công cụ không làm pipeline thất bại.
 
 ## Quan sát hệ thống
 
-Triển khai **Prometheus**, **Grafana** và **Alertmanager** để theo dõi:
+Project có script port-forward cho **Prometheus** và **Grafana**, theo dõi CPU, memory, pod restarts và trạng thái cluster khi stack monitoring đã được cài.
 
-- Mức sử dụng CPU và memory.
-- Pod restarts.
-- Trạng thái và sức khỏe của Kubernetes cluster.
+Hiện resource `kube-prometheus-stack` trong Terraform đang bị comment; Terraform **chưa cài Prometheus/Grafana/Alertmanager tự động**. Cần cài chart `kube-prometheus-stack` vào namespace `monitoring` trước khi dùng các script port-forward.
 
-Alertmanager được cấu hình gửi cảnh báo qua email để hỗ trợ phát hiện sự cố sớm.
+Email receiver/routing của Alertmanager cần được cấu hình riêng; cấu hình hiện tại chưa chứng minh alert email đã được thiết lập.

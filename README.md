@@ -1,11 +1,11 @@
-# 3-Tier AWS Platform — DevOps / Cloud Engineer
+# 3-Tier User Platform — DevOps / Cloud Engineer
 
-This repository contains the bilingual project report for **buicongthanh861**. It documents a three-tier user platform deployed on AWS with Terraform, Amazon EKS, Kubernetes, Helm, Argo CD, and GitHub Actions.
+This repository contains the bilingual project report for **buicongthanh861**. It documents the **3-Tier User Platform**, a user-management application deployed on AWS with Terraform, Amazon EKS, Kubernetes, Helm, Argo CD, and GitHub Actions.
 
 ## Project repositories
 
 - Application: [3-tier-user-platform](https://github.com/buicongthanh861/3-tier-user-platform/tree/qa) (`qa` branch)
-- Infrastructure: [3-tier-user-platform-iac](https://github.com/buicongthanh861/3-tier-user-platform-iac)
+- Infrastructure (IaC): [3-tier-user-platform-iac](https://github.com/buicongthanh861/3-tier-user-platform-iac)
 
 ## Report contents
 

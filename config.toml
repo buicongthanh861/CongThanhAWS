@@ -10,7 +10,7 @@ home = [ "HTML", "RSS", "JSON"]
   themeVariant = "workshop"
   # Git hub repo link
   editURL = ""
-  description = "DevOps / Cloud Engineer portfolio for a three-tier AWS platform built with Terraform, EKS, Kubernetes, GitOps, and DevSecOps."
+  description = "DevOps / Cloud Engineer project report for the 3-Tier User Platform, deployed on AWS EKS with Terraform, Kubernetes, GitOps, and DevSecOps."
   author = "buicongthanh861"
   showVisitedLinks = true
   disableBreadcrumb = false
@@ -19,7 +19,7 @@ home = [ "HTML", "RSS", "JSON"]
 
 [Languages]
 [Languages.en]
-title = "3-Tier AWS Platform | DevOps / Cloud Engineer"
+title = "3-Tier User Platform | DevOps / Cloud Engineer"
 weight = 1
 languageName = "English"
 
@@ -30,7 +30,7 @@ url = "https://github.com/buicongthanh861"
 weight = 20
 
 [Languages.vi]
-title = "Nền tảng AWS 3-Tier | DevOps / Cloud Engineer"
+title = "Nền tảng quản lý người dùng 3-Tier | DevOps / Cloud Engineer"
 weight = 2
 languageName = "Tiếng Việt"
 

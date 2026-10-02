@@ -3,13 +3,13 @@ title: "DevOps / Cloud Engineer"
 weight: 1
 chapter: false
 ---
-# Nền tảng người dùng 3-Tier trên AWS
+# 3-Tier User Platform trên AWS
 
-Xin chào, tôi là **buicongthanh861**. Đây là báo cáo project DevOps / Cloud Engineer trình bày quá trình xây dựng và tự động hóa một nền tảng ứng dụng ba tầng trên AWS.
+Xin chào, tôi là **buicongthanh861**. Đây là báo cáo project **3-Tier User Platform**, trình bày cách triển khai ứng dụng quản lý người dùng trên AWS và tự động hóa hạ tầng, CI/CD, GitOps.
 
 ## Tổng quan dự án
 
-Dự án triển khai frontend, backend và cơ sở dữ liệu MySQL trên Kubernetes (Amazon EKS). Hạ tầng được định nghĩa bằng Terraform; quy trình phát hành sử dụng GitHub Actions và Argo CD theo mô hình GitOps.
+Ứng dụng gồm giao diện React, REST API dùng Node.js/Express và cơ sở dữ liệu MySQL. Hạ tầng Kubernetes được triển khai trên Amazon EKS bằng Terraform. GitHub Actions kiểm tra mã nguồn, build/push image lên ECR và cập nhật Helm values trong repository IaC; Argo CD đồng bộ các thay đổi lên cluster.
 
 **Tech stack:** AWS EKS, ECR, VPC, IAM, Terraform, Kubernetes, Helm, Argo CD, GitHub Actions, Prometheus, Grafana, Trivy, Checkov, GitLeaks.
 
