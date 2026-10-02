@@ -1,22 +1,23 @@
 ---
-title : "Session Management"
-date :  "`r Sys.Date()`" 
-weight : 1 
-chapter : false
+title: "DevOps / Cloud Engineer"
+weight: 1
+chapter: false
 ---
-# Làm việc với Amazon System Manager - Session Manager
+# Nền tảng người dùng 3-Tier trên AWS
 
-### Tổng quan
+Xin chào, tôi là **buicongthanh861**. Đây là báo cáo project DevOps / Cloud Engineer trình bày quá trình xây dựng và tự động hóa một nền tảng ứng dụng ba tầng trên AWS.
 
- Trong bài lab này, bạn sẽ tìm hiểu các khái niệm cơ bản và thực hành về Amazon System Manager - Session Management. Thực hành tạo kết nối đến máy chủ public và máy chủ private trong VPC.
+## Tổng quan dự án
 
-![ConnectPrivate](/images/arc-log.png) 
+Dự án triển khai frontend, backend và cơ sở dữ liệu MySQL trên Kubernetes (Amazon EKS). Hạ tầng được định nghĩa bằng Terraform; quy trình phát hành sử dụng GitHub Actions và Argo CD theo mô hình GitOps.
 
-### Nội dung
+**Tech stack:** AWS EKS, ECR, VPC, IAM, Terraform, Kubernetes, Helm, Argo CD, GitHub Actions, Prometheus, Grafana, Trivy, Checkov, GitLeaks.
 
- 1. [Giới thiệu](1-introduce/)
- 2. [Các bước chuẩn bị](2-Prerequiste/)
- 3. [Tạo kết nối đến máy chủ EC2](3-Accessibilitytoinstance/)
- 4. [Quản lý session logs](4-s3log/)
- 5. [Port Forwarding](5-Portfwd/)
- 6. [Dọn dẹp tài nguyên](6-cleanup/)
+## Nội dung
+
+1. [Giới thiệu dự án](1-project-overview/)
+2. [Infrastructure & AWS](2-infrastructure-aws/)
+3. [Kubernetes & GitOps](3-kubernetes-gitops/)
+4. [CI/CD](4-cicd/)
+5. [DevSecOps & Monitoring](5-devsecops-monitoring/)
+6. [Repositories & kết quả](6-repositories-results/)

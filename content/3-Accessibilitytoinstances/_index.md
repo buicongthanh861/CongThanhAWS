@@ -1,5 +1,6 @@
 ---
 title : "Connect to EC2 servers"
+hidden: true
 date : "`r Sys.Date()`"
 weight : 3
 chapter : false

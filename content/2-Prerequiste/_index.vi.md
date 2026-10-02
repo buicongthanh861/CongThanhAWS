@@ -1,5 +1,6 @@
 ---
 title : "Các bước chuẩn bị"
+hidden: true
 date :  "`r Sys.Date()`" 
 weight : 2 
 chapter : false

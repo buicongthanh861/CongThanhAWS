@@ -1,5 +1,6 @@
 ---
 title : "Manage session logs"
+hidden: true
 date : "`r Sys.Date()`"
 weight : 4
 chapter : false

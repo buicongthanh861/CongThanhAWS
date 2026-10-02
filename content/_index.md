@@ -1,21 +1,23 @@
 ---
-title : "Session Management"
-date :  "`r Sys.Date()`" 
-weight : 1 
-chapter : false
+title: "DevOps / Cloud Engineer"
+weight: 1
+chapter: false
 ---
-# Work with Amazon System Manager - Session Manager
+# 3-Tier User Platform on AWS
 
-### Overall
- In this lab, you'll learn the basics and practice of Amazon  System Manager - Session Manager
-. Perform creating public and private instance connections. 
+Hi, I am **buicongthanh861**. This project report presents the design and automation of a three-tier application platform on AWS.
 
-![ConnectPrivate](/images/arc-log.png) 
+## Project overview
 
-### Content
- 1. [Introduction ](1-introduce/)
- 2. [Preparation](2-prerequiste/)
- 3. [Connect to EC2 instance](3-accessibilitytoinstances/)
- 4. [Manage session logs](4-s3log/)
- 5. [Port Forwarding](5-Portfwd/)
- 6. [Clean up resources](6-cleanup/)
+The project runs frontend, backend, and MySQL workloads on Kubernetes (Amazon EKS). Infrastructure is provisioned with Terraform, while GitHub Actions and Argo CD automate delivery using GitOps.
+
+**Tech stack:** AWS EKS, ECR, VPC, IAM, Terraform, Kubernetes, Helm, Argo CD, GitHub Actions, Prometheus, Grafana, Trivy, Checkov, GitLeaks.
+
+## Contents
+
+1. [Project overview](1-project-overview/)
+2. [Infrastructure & AWS](2-infrastructure-aws/)
+3. [Kubernetes & GitOps](3-kubernetes-gitops/)
+4. [CI/CD](4-cicd/)
+5. [DevSecOps & Monitoring](5-devsecops-monitoring/)
+6. [Repositories & outcomes](6-repositories-results/)

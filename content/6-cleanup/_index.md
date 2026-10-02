@@ -1,5 +1,6 @@
 +++
 title = "Clean up resources"
+hidden = true
 date = 2022
 weight = 6
 chapter = false

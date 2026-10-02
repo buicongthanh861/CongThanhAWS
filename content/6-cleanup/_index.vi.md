@@ -1,5 +1,6 @@
 +++
 title = "Dọn dẹp tài nguyên  "
+hidden = true
 date = 2021
 weight = 6
 chapter = false

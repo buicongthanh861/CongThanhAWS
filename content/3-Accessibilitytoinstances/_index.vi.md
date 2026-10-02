@@ -1,5 +1,6 @@
 ---
 title : "Tạo kết nối đến máy chủ EC2"
+hidden: true
 date :  "`r Sys.Date()`" 
 weight : 3 
 chapter : false
